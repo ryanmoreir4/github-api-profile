@@ -1,0 +1,24 @@
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.topicos-repo {
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+}
+
+.topics-repo-items {
+  display: flex;
+  font-weight: 500;
+  justify-content: start;
+  margin: 10px;
+  border: 1px solid rgba(0, 51, 117, 0.658);
+  border-radius: 18px;
+  height: 50px;
+  text-align: center;
+  padding: 14px;
+  color: white;
+  background-color: rgba(0, 39, 211, 0.918);
+}
