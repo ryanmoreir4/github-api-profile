@@ -1,9 +1,13 @@
 const repositorios = document.querySelector(".card-container");
-const perfilImg = document.querySelector(".imgprofile");
 const colegasTrabalho = document.querySelector(".colegastrabalho");
+const perfilImg = document.querySelector(".imgprofile");
+const perfilName = document.getElementById("profile-name");
+const perfilBio = document.getElementById("profile-bio");
+const perfilLocation = document.getElementById("profile-location");
+const perfil = document.querySelector(".perfil-me");
 
 function getApiGitHub() {
-  //Puxar a imagem de perfil do GitHub
+  //Puxar dados do perfil do GitHub
   fetch("https://api.github.com/users/ryanmoreir4")
     .then(async (res) => {
       if (!res.ok) {
@@ -12,6 +16,9 @@ function getApiGitHub() {
       let userData = await res.json();
       perfilImg.src = userData.avatar_url;
       perfilImg.alt = `${userData.name} Profile Picture`;
+      perfilName.textContent = userData.name;
+      perfilBio.textContent = userData.bio;
+      perfilLocation.innerHTML = `<b>Location:</b> ${userData.location}`;
     })
     .catch((error) => {
       console.error("Erro ao buscar informações do usuário:", error);
@@ -48,6 +55,7 @@ function getApiGitHub() {
       console.error("Erro ao buscar informações:", error);
     });
 
+  //Puxar colegas de trabalho
   fetch("https://api.github.com/users/ryanmoreir4/following")
     .then(async (res) => {
       if (!res.ok) {
