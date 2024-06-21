@@ -1,4 +1,4 @@
-const token = ``;
+const token = `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`;
 const headers = { Authorization: `token ${token}` };
 
 document.addEventListener("DOMContentLoaded", function () {
