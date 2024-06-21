@@ -75,7 +75,7 @@ main {
 }
 
 .perfil {
-  display: flex;
+  display: inline-flex;
   width: auto;
   height: auto;
   margin-bottom: 20px;
