@@ -1,4 +1,5 @@
-const token = `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`;
+require("dotenv").config();
+const token = process.env.GITHUB_TOKEN;
 const headers = { Authorization: `token ${token}` };
 
 document.addEventListener("DOMContentLoaded", function () {
