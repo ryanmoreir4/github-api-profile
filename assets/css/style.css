@@ -1,6 +1,10 @@
 * {
   font-family: "Poppins", sans-serif;
+  color: white;
   padding: 3px;
+}
+body {
+  background-color: #0d1117;
 }
 
 a {
@@ -20,18 +24,12 @@ a:hover {
   letter-spacing: 2px;
 }
 
-.carousel-item {
-  width: 75vw;
-  height: 75vh;
-  align-items: center;
-}
-
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 8vh;
-  background-color: gray;
+  background-color: #06090c;
 }
 
 .nav-list {
@@ -42,9 +40,6 @@ nav {
 .nav-list li {
   letter-spacing: 3px;
   margin-left: 32px;
-}
-.container {
-  background-color: white;
 }
 
 h2 {
@@ -67,7 +62,7 @@ footer {
 }
 
 .icons {
-  width: 30px;
+  width: 50px;
 }
 
 main {
@@ -98,7 +93,7 @@ main {
   position: relative;
   padding: 10px;
   width: 300px;
-  background-color: white;
+  background-color: rgb(185, 185, 185);
   margin: 20px;
   border: 1px solid black;
   border-radius: 20px;
@@ -107,14 +102,17 @@ main {
   text-align: center;
 }
 
+#text-card {
+  color: black;
+}
+
 .card-container .card-content {
   padding: 20px;
   text-align: center;
 }
 
 .card-container .card-content:hover {
-  color: whitesmoke;
-  background-color: rgb(163, 163, 163);
+  background-color: rgb(171, 201, 241);
   margin-top: 15px;
   box-shadow: 2px 20px 25px rgb(46, 46, 46);
 }

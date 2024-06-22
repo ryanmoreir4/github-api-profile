@@ -1,13 +1,14 @@
-const token = `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`;
+const token = `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`;
 const headers = { Authorization: `token ${token}` };
 
 document.addEventListener("DOMContentLoaded", function () {
   const repositorios = document.querySelector(".card-container");
   const colegasTrabalho = document.querySelector(".colegastrabalho");
   const perfilImg = document.querySelector(".imgprofile");
-  const perfilName = document.getElementById("profile-name");
+  const perfilNome = document.getElementById("profile-name");
   const perfilBio = document.getElementById("profile-bio");
   const perfilLocation = document.getElementById("profile-location");
+  const quantRepositorios = document.getElementById("quant-repo");
 
   function getApiGitHub() {
     //Puxar dados do perfil do GitHub
@@ -19,9 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let userData = await res.json();
         perfilImg.src = userData.avatar_url;
         perfilImg.alt = `${userData.name} Profile Picture`;
-        perfilName.textContent = userData.name;
+        perfilNome.textContent = userData.name;
         perfilBio.textContent = userData.bio;
         perfilLocation.innerHTML = `<b>Location:</b> ${userData.location}`;
+        quantRepositorios.textContent = `Repositórios (${userData.public_repos})`;
       })
       .catch((error) => {
         console.error("Erro ao buscar informações do usuário:", error);
@@ -42,17 +44,17 @@ document.addEventListener("DOMContentLoaded", function () {
           });
 
           project.innerHTML = `
-          <p class="title-card">
-            <a style="color: black" ">
-              <b>${item.name}</b>
-            </a>
+          <p class="title-card">        
+              <b style="color: black" id="title-text-card">${item.name}</b>
           </p>
-          <p>${item.description || "Descrição não disponível."}</p>
+          <p id="text-card">${
+            item.description || "Descrição não disponível."
+          }</p>
           <div class="icon-card-repo">
             <img src="/assets/img/grande-estrela-favorita.png" alt="Star Icon" />
-            <p>${item.stargazers_count}</p>
+            <p style="color: black">${item.stargazers_count}</p>
             <img src="/assets/img/fork-github.png" alt="Fork Icon" />
-            <p>${item.forks_count}</p>
+            <p style="color: black">${item.forks_count}</p>
           </div>`;
           repositorios.appendChild(project);
         });
@@ -83,8 +85,77 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((error) => {
         console.error("Erro ao buscar colaboradores do repositório:", error);
+
+        document.addEventListener("DOMContentLoaded", function () {
+          fetch("http://localhost:3000/conteudosSugeridos")
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(
+                  "Network response was not ok " + response.statusText
+                );
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("Data received:", data); // Log the data received
+              const carouselInner = document.querySelector(".carousel-inner");
+              const carouselIndicators = document.querySelector(
+                ".carousel-indicators"
+              );
+
+              data.forEach((item, index) => {
+                console.log("Processing item:", item); // Log each item being processed
+                // Create carousel item
+                const carouselItem = document.createElement("div");
+                carouselItem.classList.add("carousel-item");
+                if (index === 0) {
+                  carouselItem.classList.add("active");
+                }
+
+                const img = document.createElement("img");
+                img.src = item.imagem;
+                img.classList.add("d-block", "w-100");
+                img.alt = item.titulo;
+
+                const caption = document.createElement("div");
+                caption.classList.add(
+                  "carousel-caption",
+                  "d-none",
+                  "d-md-block"
+                );
+
+                const title = document.createElement("h5");
+                title.textContent = item.titulo;
+
+                const description = document.createElement("p");
+                description.textContent = item.descricao;
+
+                caption.appendChild(title);
+                caption.appendChild(description);
+                carouselItem.appendChild(img);
+                carouselItem.appendChild(caption);
+                carouselInner.appendChild(carouselItem);
+
+                // Create carousel indicator
+                const indicator = document.createElement("button");
+                indicator.type = "button";
+                indicator.setAttribute(
+                  "data-bs-target",
+                  "#carouselExampleCaptions"
+                );
+                indicator.setAttribute("data-bs-slide-to", index);
+                indicator.setAttribute("aria-label", `Slide ${index + 1}`);
+                if (index === 0) {
+                  indicator.classList.add("active");
+                  indicator.setAttribute("aria-current", "true");
+                }
+
+                carouselIndicators.appendChild(indicator);
+              });
+            })
+            .catch((error) => console.error("Erro ao buscar os dados:", error));
+        });
       });
   }
-
   getApiGitHub();
 });

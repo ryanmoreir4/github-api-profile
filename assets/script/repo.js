@@ -1,4 +1,4 @@
-const token = `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`;
+const token = `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`;
 const headers = { Authorization: `token ${token}` };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -33,9 +33,26 @@ document.addEventListener("DOMContentLoaded", function () {
         repoDate.textContent = new Date(repoData.created_at).toLocaleDateString(
           "pt-BR"
         );
-        repoLanguage.textContent =
-          repoData.languages_url || "Linguagem não disponível.";
-        repoLink.innerHTML = `<a href="https://github.com/${repoData.login}/${repoData.name}" target="_blank">${data.html_url}</a>`;
+        repoLink.innerHTML =
+          `<a style="color: blue; text-decoration: underline" href="${repoData.html_url}" target="_blank">GitHub</a>` ||
+          "Link de acesso não disponível";
+
+        // Busca as linguagens do repositório
+        fetch(repoData.languages_url, { headers })
+          .then(async (res) => {
+            if (!res.ok) {
+              throw new Error(res.status);
+            }
+            let languagesData = await res.json();
+            let languages =
+              Object.keys(languagesData).join(", ") ||
+              "Linguagens não disponíveis";
+            repoLanguage.textContent = languages;
+          })
+          .catch((error) => {
+            console.error("Erro ao buscar linguagens do repositório:", error);
+            repoLanguage.textContent = "Erro ao buscar linguagens.";
+          });
       })
       .catch((error) => {
         console.error("Erro ao buscar informações do repositório:", error);

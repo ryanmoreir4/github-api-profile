@@ -40,23 +40,14 @@
           />
         </figure>
         <div class="perfil-me">
-          <h3 id="profile-name">Ryan Moreira Paulino de Oliveira</h3>
-          <p id="profile-bio">
-            Olá, bem vindo ao meu GitHub!! Meu nome é Ryan, tenho 18 anos e sou
-            graduando em Sistemas de Informação na Pontifícia Universidade
-            Católica de Minas Gerais. Também sou técnico em Informática para
-            Internet pelo SENAI e entusiasta do mundo da tecnologia da
-            informação!
-          </p>
+          <h3 id="profile-name"></h3>
+          <p id="profile-bio"></p>
           <p id="profile-location">
-            <b>Location:</b> Belo Horizonte, MG - Brazil
+            <b>Location:</b>
           </p>
           <p>
             <b>LinkedIn:</b>
-            <a
-              style="color: black"
-              href="http://www.linkedin.com/in/ryan-moreira"
-              target="_blank"
+            <a href="http://www.linkedin.com/in/ryan-moreira" target="_blank"
               >Ryan Moreira</a
             >
           </p>
@@ -69,24 +60,20 @@
                 alt="Instagram"
               />
             </a>
-            <img
-              class="icons"
-              src="/assets/img/sinal-do-twitter.png"
-              alt="Twitter"
-            />
+            <img class="icons" src="/assets/img/e-mail.png" alt="Twitter" />
           </div>
         </div>
       </div>
-      <h2>Repositórios</h2>
+      <h2 id="quant-repo">Repositórios</h2>
       <div class="card-container"></div>
 
       <div class="conteudosugerido">
         <h2>Conteúdo Sugerido</h2>
-        <div id="carouselExampleIndicators" class="carousel slide">
+        <div id="carouselExampleCaptions" class="carousel slide">
           <div class="carousel-indicators">
             <button
               type="button"
-              data-bs-target="#carouselExampleIndicators"
+              data-bs-target="#carouselExampleCaptions"
               data-bs-slide-to="0"
               class="active"
               aria-current="true"
@@ -94,32 +81,86 @@
             ></button>
             <button
               type="button"
-              data-bs-target="#carouselExampleIndicators"
+              data-bs-target="#carouselExampleCaptions"
               data-bs-slide-to="1"
               aria-label="Slide 2"
             ></button>
             <button
               type="button"
-              data-bs-target="#carouselExampleIndicators"
+              data-bs-target="#carouselExampleCaptions"
               data-bs-slide-to="2"
               aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
             ></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="/assets/img/imgbanner1.jpg" alt="Banner 1" />
+              <img
+                src="/assets/img/imgbanner1.png"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Rafaella Ballerini on YouTube</h5>
+                <p>
+                  O QUE É GIT E GITHUB? - definição e conceitos importantes 1/2
+                </p>
+              </div>
             </div>
             <div class="carousel-item">
-              <img src="/assets/img/imgbanner2.jpg" alt="Banner 2" />
+              <img
+                src="/assets/img/imgbanner2.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Rafaella Ballerini on YouTube</h5>
+                <p>
+                  COMO USAR GIT E GITHUB NA PRÁTICA! - desde o primeiro commit
+                  até o pull request! 2/2
+                </p>
+              </div>
             </div>
             <div class="carousel-item">
-              <img src="/assets/img/imgbanner3.jpg" alt="Banner 3" />
+              <img
+                src="/assets/img/imgbanner3.png"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block"></div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="/assets/img/imgbanner4.png"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block"></div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="/assets/img/imgbanner5.png"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block"></div>
             </div>
           </div>
           <button
             class="carousel-control-prev"
             type="button"
-            data-bs-target="#carouselExampleIndicators"
+            data-bs-target="#carouselExampleCaptions"
             data-bs-slide="prev"
           >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -128,7 +169,7 @@
           <button
             class="carousel-control-next"
             type="button"
-            data-bs-target="#carouselExampleIndicators"
+            data-bs-target="#carouselExampleCaptions"
             data-bs-slide="next"
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>

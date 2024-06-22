@@ -1,0 +1,34 @@
+{
+  "conteudosSugeridos": [
+    {
+      "id": 1,
+      "imagem": "/assets/img/imgbanner1.png",
+      "titulo": "Primeiro Slide",
+      "descricao": "Descrição do primeiro slide."
+    },
+    {
+      "id": 2,
+      "imagem": "/assets/img/imgbanner2.png",
+      "titulo": "Segundo Slide",
+      "descricao": "Descrição do segundo slide."
+    },
+    {
+      "id": 3,
+      "imagem": "/assets/img/imgbanner3.png",
+      "titulo": "Terceiro Slide",
+      "descricao": "Descrição do terceiro slide."
+    },
+    {
+      "id": 4,
+      "imagem": "/assets/img/imgbanner4.png",
+      "titulo": "Quarto Slide",
+      "descricao": "Descrição do quarto slide."
+    },
+    {
+      "id": 5,
+      "imagem": "/assets/img/imgbanner5.png",
+      "titulo": "Quinto Slide",
+      "descricao": "Descrição do quinto slide."
+    }
+  ]
+}
